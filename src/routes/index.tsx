@@ -21,27 +21,27 @@ const agenda = [
   ["Film, TV & Games", "Script, VFX, scoring, and interactive storytelling"],
   ["Personalization", "Recommendations, fan experiences, and live events"],
   ["Challenges & Future", "Ethics, rights, and where the industry is heading"],
-];
+] as const;
 
 const rise = [
   ["Speed", "AI generates melodies, stems, and full tracks in seconds — compressing weeks of studio time into minutes."],
   ["Scale", "Personalized soundtracks, infinite variations, and adaptive content for millions of users simultaneously."],
   ["Access", "Professional-grade tools now available to independent creators, democratizing high-end production."],
-];
+] as const;
 
 const tools = [
   ["Suno & Udio", "Text-to-music generation of full songs with vocals and lyrics"],
   ["AIVA & Amper", "Classical and commercial composition assistants for film & ads"],
   ["Google MusicLM", "Research-grade text and image conditioned audio models"],
   ["OpenAI Jukebox", "Neural net that generates music in the style of popular artists"],
-];
+] as const;
 
 const production = [
   ["Intelligent Mixing", "AI analyzes tracks and suggests balance, EQ, and compression settings tailored to genre and target loudness."],
   ["Stem Separation", "Real-time isolation of vocals, drums, bass, and instruments from mixed tracks for remixing and sampling."],
   ["Mastering Assistants", "Cloud services deliver broadcast-ready masters with style matching and reference track comparison."],
   ["Sound Design", "Generative models create unique textures, atmospheres, and effects that expand the sonic palette."],
-];
+] as const;
 
 const stack: [string, string[]][] = [
   ["Script & Story", ["Plot generation & outline tools", "Dialogue refinement assistants", "Character consistency checkers"]],
@@ -54,21 +54,21 @@ const stats = [
   ["70%+", "of listening time on major platforms is driven by recommendation algorithms"],
   ["Real-time", "adaptive playlists that evolve with mood, context, and activity"],
   ["1:1", "personalized concert visuals, setlists, and merch recommendations"],
-];
+] as const;
 
 const ethics = [
   ["Copyright & Ownership", "Who owns AI-generated music? Training data rights, derivative works, and artist compensation remain unsettled."],
   ["Authenticity", "Listeners and fans increasingly value human authorship. Transparency about AI involvement is becoming essential."],
   ["Job Displacement", "Session musicians, junior composers, and editors face pressure as AI handles more routine creative tasks."],
   ["Bias & Quality", "Models reflect the data they are trained on — cultural bias, homogenization of style, and quality control are ongoing issues."],
-];
+] as const;
 
 const future = [
   ["Now", "Co-creation tools", "Artists treat AI as a collaborator for ideation, arrangement, and rapid prototyping."],
   ["Near", "Hyper-personal media", "Dynamic soundtracks and stories that adapt in real time to individual users."],
   ["Next", "New business models", "AI-native labels, rights frameworks, and creator economies built around generative content."],
   ["Ahead", "Human + AI artistry", "The most valued work will combine emotional intelligence of humans with scale of machines."],
-];
+] as const;
 
 const takeaways = [
   "AI accelerates creation without replacing the need for human taste and emotion.",
