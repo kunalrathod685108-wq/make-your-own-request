@@ -106,7 +106,7 @@ function Index() {
       <header className="bg-glow relative flex flex-col justify-center px-6 py-16 md:py-20">
         <div className="mx-auto w-full max-w-6xl">
           <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Artificial Intelligence · Music · Entertainment</p>
-          <h1 className="mt-6 text-6xl font-extrabold leading-[0.9] tracking-tight md:text-9xl">
+          <h1 className="mt-6 text-4xl font-extrabold leading-[0.95] sm:text-6xl md:text-7xl lg:text-9xl">
             AI in<br />Music &<br /><span className="text-primary">Entertainment</span>
           </h1>
           <p className="mt-8 max-w-xl text-lg text-muted-foreground md:text-xl">

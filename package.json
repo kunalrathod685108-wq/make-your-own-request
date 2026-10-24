@@ -14,14 +14,12 @@
     "test:watch": "vitest"
   },
   "overrides": {
-    "rolldown": "1.2.1",
-    "@ai-sdk/provider": "4.0.33",
-    "@ai-sdk/provider-utils": "5.0.67"
+    "rolldown": "1.2.1"
   },
   "dependencies": {
-    "@ai-sdk/openai": "^4.0.101",
-    "@ai-sdk/openai-compatible": "^3.0.77",
-    "@ai-sdk/provider": "^4.0.33",
+    "@ai-sdk/openai": "4.0.99",
+    "@ai-sdk/openai-compatible": "3.0.75",
+    "@ai-sdk/provider": "4.0.31",
     "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-accordion": "^1.2.12",
     "@radix-ui/react-alert-dialog": "^1.1.15",
@@ -55,7 +53,7 @@
     "@tanstack/react-router": "1.170.41",
     "@tanstack/react-start": "1.168.60",
     "@tanstack/router-plugin": "1.168.42",
-    "ai": "^7.0.148",
+    "ai": "7.0.148",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
