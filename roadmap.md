@@ -3,6 +3,6 @@
 - [x] Verify online results, AI requests, and mobile layout; preview links are available but browser audio playback could not be verified (unsupported audio format in test browser).
 
 # Song studio
-- [ ] Add mood selection, lyrics generation, automatic context-to-song, play and download.
-- [ ] Add sign-in, editable profile, and private saved songs.
+- [x] Add mood selection, lyrics generation, automatic context-to-song, play and download.
+- [x] Add sign-in, editable profile, and private saved songs.
 - [ ] Verify generation and saved song playback/download through the app.
