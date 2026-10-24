@@ -1,12 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { MusicSearch } from '@/components/music-search';
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "AI in Music & Entertainment" },
-      { name: "description", content: "How artificial intelligence is reshaping creation, discovery, and the fan experience." },
+      { name: "description", content: "Discover songs with AI music search, explore live music charts, and learn how AI is reshaping entertainment." },
       { property: "og:title", content: "AI in Music & Entertainment" },
-      { property: "og:description", content: "How AI is reshaping creation, production, personalization and the future of entertainment." },
+      { property: "og:description", content: "Find songs for your mood, browse trending music, and explore AI in music and entertainment." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -102,10 +103,10 @@ function Card({ k, title, body }: { k?: string; title: string; body: string }) {
 function Index() {
   return (
     <main className="min-h-screen overflow-x-hidden">
-      <header className="bg-glow relative flex min-h-[90vh] flex-col justify-center px-6">
+      <header className="bg-glow relative flex flex-col justify-center px-6 py-16 md:py-20">
         <div className="mx-auto w-full max-w-6xl">
           <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Artificial Intelligence · Music · Entertainment</p>
-          <h1 className="mt-6 text-6xl font-extrabold leading-[0.9] tracking-tight md:text-9xl">
+          <h1 className="mt-6 text-4xl font-extrabold leading-[0.95] sm:text-6xl md:text-7xl lg:text-9xl">
             AI in<br />Music &<br /><span className="text-primary">Entertainment</span>
           </h1>
           <p className="mt-8 max-w-xl text-lg text-muted-foreground md:text-xl">
@@ -114,6 +115,8 @@ function Index() {
           <p className="mt-12 text-xs uppercase tracking-[0.2em] text-muted-foreground">Creation · Production · Personalization · The Future</p>
         </div>
       </header>
+
+      <MusicSearch />
 
       <Section id="agenda" num="01" label="Agenda" title="What we'll explore today.">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
