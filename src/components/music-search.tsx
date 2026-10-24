@@ -54,7 +54,7 @@ export function MusicSearch() {
     <div aria-live="polite" aria-busy={busy}>
       {busy && <p className="mt-5 text-sm text-muted-foreground">Finding music…</p>}
       {result?.error && <p role="alert" className="mt-5 text-sm text-primary">{result.error}</p>}
-      {result && !result.error && <>
+      {result && (!result.error || result.songs.length > 0) && <>
         <div className="mt-6 flex flex-wrap justify-between gap-2 text-sm"><p className="font-medium">{result.query}</p><p className="text-muted-foreground">{result.source}</p></div>
         {result.songs.length === 0 && <p className="mt-4 text-muted-foreground">No songs found. Try another song or artist.</p>}
         <div className="mt-4 grid gap-3 md:grid-cols-2 lg:grid-cols-3">{result.songs.map(song => <article key={song.id} className="flex min-w-0 gap-3 rounded-lg border border-border bg-card p-3">
