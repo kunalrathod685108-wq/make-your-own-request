@@ -1,0 +1,7 @@
+import { createFileRoute } from '@tanstack/react-router';
+import { useState } from 'react';
+import { supabase } from '@/integrations/supabase/client';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+export const Route = createFileRoute('/reset-password')({ head: () => ({ meta: [{ title: 'Reset password | AI Song Studio' }, { name: 'description', content: 'Reset your AI Song Studio account password.' }, { property: 'og:title', content: 'Reset password | AI Song Studio' }, { property: 'og:description', content: 'Securely reset your music account password.' }, { property: 'og:type', content: 'website' }, { name: 'twitter:card', content: 'summary' }] }), component: ResetPassword });
+function ResetPassword() { const [password, setPassword] = useState(''); const [message, setMessage] = useState(''); return <main className="mx-auto max-w-md px-6 py-20"><h1 className="text-3xl font-bold">Reset password</h1><form className="mt-6 space-y-4" onSubmit={async e => { e.preventDefault(); const { error } = await supabase.auth.updateUser({ password }); setMessage(error?.message ?? 'Password updated. You can return to your songs.'); }}><Input type="password" aria-label="New password" autoComplete="new-password" minLength={8} required value={password} onChange={e => setPassword(e.target.value)} /><Button type="submit">Update password</Button></form>{message && <p role="status" className="mt-4">{message}</p>}<a href="/" className="mt-6 block text-primary">Return to music</a></main>; }

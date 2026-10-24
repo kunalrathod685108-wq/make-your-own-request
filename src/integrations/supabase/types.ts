@@ -14,7 +14,78 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      generated_songs: {
+        Row: {
+          audio_path: string | null
+          context: string
+          created_at: string
+          duration: number
+          error: string | null
+          error_status: number | null
+          genre: string
+          id: string
+          instrumental: boolean
+          language: string
+          lyrics: string
+          mood: string
+          status: string
+          title: string
+          user_id: string
+        }
+        Insert: {
+          audio_path?: string | null
+          context: string
+          created_at?: string
+          duration?: number
+          error?: string | null
+          error_status?: number | null
+          genre: string
+          id?: string
+          instrumental?: boolean
+          language: string
+          lyrics?: string
+          mood: string
+          status?: string
+          title?: string
+          user_id: string
+        }
+        Update: {
+          audio_path?: string | null
+          context?: string
+          created_at?: string
+          duration?: number
+          error?: string | null
+          error_status?: number | null
+          genre?: string
+          id?: string
+          instrumental?: boolean
+          language?: string
+          lyrics?: string
+          mood?: string
+          status?: string
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string
+          display_name: string
+          id: string
+        }
+        Insert: {
+          avatar_url?: string
+          display_name?: string
+          id: string
+        }
+        Update: {
+          avatar_url?: string
+          display_name?: string
+          id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

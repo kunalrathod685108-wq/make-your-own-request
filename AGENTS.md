@@ -12,3 +12,6 @@
 - Keep music discovery in a dedicated component on the presentation page so the original presentation remains intact.
 - Music catalog and chart requests run in validated server functions; AI request helpers stay in server-only modules to keep credentials private.
 - Use live Apple catalog/chart data for song results and trend rankings rather than AI-invented charts.
+- Song generation uses an owner-scoped persisted request with an atomic pending-to-composing claim, so duplicate execution never generates twice.
+- Store generated audio privately; playback and downloads authorize the song owner and reuse stored bytes without new AI calls.
+- The shared music account provider owns the single session subscription; public music pages call protected actions only after sign-in.
