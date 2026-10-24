@@ -18,7 +18,7 @@ export const searchMusic = createServerFn({ method: 'POST' })
           album: entry['im:collection']?.['im:name'].label ?? '', artwork: entry['im:image'].at(-1)?.label ?? '',
           url: entry.id.label, preview: entry.link.find(link => link.attributes.type?.startsWith('audio/'))?.attributes.href ?? null,
         }));
-        return { songs, query: 'Trending now', source: `Apple Music top songs · ${data.country === 'in' ? 'India' : 'United States'}` };
+        return { songs, query: 'Trending now', source: `iTunes top songs · ${data.country === 'in' ? 'India' : 'United States'}` };
       }
       if (!query) return { songs: [], query, source: '', error: 'Enter a song, artist, or music request.' };
       if (data.mode === 'ai') {
