@@ -142,3 +142,27 @@
     color: var(--color-foreground);
   }
 }
+
+:root {
+  --background: oklch(0.14 0.01 60);
+  --foreground: oklch(0.95 0.01 85);
+  --card: oklch(0.19 0.012 60);
+  --card-foreground: oklch(0.95 0.01 85);
+  --primary: oklch(0.78 0.16 65);
+  --primary-foreground: oklch(0.14 0.01 60);
+  --muted: oklch(0.22 0.01 60);
+  --muted-foreground: oklch(0.68 0.02 80);
+  --border: oklch(0.3 0.015 60);
+  --font-display: "Bricolage Grotesque", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  --gradient-glow: radial-gradient(60% 50% at 70% 30%, color-mix(in oklab, var(--primary) 35%, transparent), transparent 70%);
+}
+@theme inline {
+  --font-display: var(--font-display);
+  --font-sans: var(--font-body);
+}
+@layer base {
+  body { font-family: var(--font-body); }
+  h1, h2, h3 { font-family: var(--font-display); }
+}
+.bg-glow { background-image: var(--gradient-glow); }
