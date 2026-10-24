@@ -68,7 +68,7 @@ export const songPlayback = createServerFn({ method: 'POST' }).middleware([requi
   const storage = context.supabase.storage.from('generated-songs');
   const [play, download] = await Promise.all([storage.createSignedUrl(song.audio_path, 3600), storage.createSignedUrl(song.audio_path, 3600, { download: 'my-ai-song.mp3' })]);
   if (!play.data || !download.data) throw new Error('Could not open this recording.');
-  const browserBase = import.meta.env.VITE_SUPABASE_URL;
+  const browserBase = import.meta.env['VITE_SUPABASE_URL'];
   const serverBase = process.env['SUPABASE_URL'];
   const browserUrl = (url: string) => serverBase && browserBase ? url.replace(serverBase, browserBase) : url;
   return { url: browserUrl(play.data.signedUrl), download: browserUrl(download.data.signedUrl) };
