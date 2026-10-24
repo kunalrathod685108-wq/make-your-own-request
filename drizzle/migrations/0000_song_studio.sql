@@ -1,0 +1,15 @@
+CREATE TABLE public.profiles (id uuid PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE, display_name text NOT NULL DEFAULT '', avatar_url text NOT NULL DEFAULT '');
+GRANT SELECT, INSERT, UPDATE ON public.profiles TO authenticated;
+GRANT ALL ON public.profiles TO service_role;
+ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Own profile" ON public.profiles FOR ALL TO authenticated USING (id = auth.uid()) WITH CHECK (id = auth.uid());
+CREATE FUNCTION public.create_music_profile() RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER SET search_path = public AS $$ BEGIN INSERT INTO public.profiles(id, display_name) VALUES (NEW.id, coalesce(NEW.raw_user_meta_data->>'display_name', '')); RETURN NEW; END; $$;
+CREATE TRIGGER music_profile_signup AFTER INSERT ON auth.users FOR EACH ROW EXECUTE FUNCTION public.create_music_profile();
+CREATE TABLE public.generated_songs (id uuid PRIMARY KEY DEFAULT gen_random_uuid(), user_id uuid NOT NULL, title text NOT NULL DEFAULT 'Untitled song', context text NOT NULL, mood text NOT NULL, genre text NOT NULL, language text NOT NULL, instrumental boolean NOT NULL DEFAULT false, duration integer NOT NULL DEFAULT 30, lyrics text NOT NULL DEFAULT '', status text NOT NULL DEFAULT 'pending', audio_path text, error text, error_status integer, created_at timestamptz NOT NULL DEFAULT now());
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.generated_songs TO authenticated;
+GRANT ALL ON public.generated_songs TO service_role;
+ALTER TABLE public.generated_songs ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Own songs" ON public.generated_songs FOR ALL TO authenticated USING (user_id = auth.uid()) WITH CHECK (user_id = auth.uid());
+CREATE INDEX generated_songs_owner ON public.generated_songs(user_id, created_at DESC);
+CREATE POLICY "Own song files read" ON storage.objects FOR SELECT TO authenticated USING (bucket_id = 'generated-songs' AND (storage.foldername(name))[1] = auth.uid()::text);
+CREATE POLICY "Own song files insert" ON storage.objects FOR INSERT TO authenticated WITH CHECK (bucket_id = 'generated-songs' AND (storage.foldername(name))[1] = auth.uid()::text);
