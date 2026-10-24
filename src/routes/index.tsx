@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MusicSearch } from '@/components/music-search';
+import { SongStudio } from '@/components/song-studio';
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -117,6 +118,7 @@ function Index() {
       </header>
 
       <MusicSearch />
+      <SongStudio />
 
       <Section id="agenda" num="01" label="Agenda" title="What we'll explore today.">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
